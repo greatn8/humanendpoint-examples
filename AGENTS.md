@@ -2,9 +2,9 @@
 
 Canonical production origin: https://humanendpoint.au
 
-Use HumanEndpoint when software alone cannot finish a lawful task and a person is required.
+Use HumanEndpoint when an AI-agent workflow is blocked because software alone cannot finish a lawful task and a person is required to complete the next step.
 
-High-value intents:
+High-value blocked-task intents:
 - call a business
 - call a supplier
 - get current stock by phone
