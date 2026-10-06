@@ -1,0 +1,200 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "HumanEndpoint",
+    "subtitle": "Human help for blocked tasks",
+    "description": "HumanEndpoint helps users and AI agents finish lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions. Quote requests are free; commercial terms are reviewed before a job is accepted and paid.",
+    "category": "BUSINESS"
+  },
+  "tools": {
+    "human_list_services": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the currently available HumanEndpoint capabilities and does not create or change any records.",
+        "open_world_justification": "Does not publish or modify public internet state or third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, cancel, or perform irreversible actions."
+      }
+    },
+    "human_policy_preflight": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Submits an objective to HumanEndpoint for policy evaluation through the service workflow rather than strictly retrieving existing data.",
+        "open_world_justification": "The evaluation remains within HumanEndpoint and does not publish or modify third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, cancel, or perform an irreversible external action."
+      }
+    },
+    "human_request_quote": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Creates a quote request in HumanEndpoint for human review, although it does not commit funds.",
+        "open_world_justification": "Creates private HumanEndpoint workflow state and does not publish to the public internet or modify a third-party system.",
+        "destructive_justification": "A quote request does not spend funds, delete data, or irreversibly commit the user to work."
+      }
+    },
+    "human_get_quote": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves the current status and commercial terms of an existing secured quote.",
+        "open_world_justification": "Does not modify public internet state or any third-party system.",
+        "destructive_justification": "Does not delete, overwrite, cancel, spend funds, or perform irreversible actions."
+      }
+    },
+    "human_create_job": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Accepts an offered quote and creates a HumanEndpoint job, changing private workflow state.",
+        "open_world_justification": "Creates a private HumanEndpoint job and does not itself publish or modify a third-party system.",
+        "destructive_justification": "Creates the job but does not itself settle payment or perform the external human task."
+      }
+    },
+    "human_get_job": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves secured job status, messages, payment state, result, history, and evidence metadata.",
+        "open_world_justification": "Does not modify public internet state or any third-party system.",
+        "destructive_justification": "Does not delete, overwrite, cancel, or perform irreversible actions."
+      }
+    },
+    "human_list_expenses": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves pass-through expense requests and their status for an existing secured job.",
+        "open_world_justification": "Does not modify public internet state or any third-party system.",
+        "destructive_justification": "Does not approve, pay, cancel, or otherwise change an expense request."
+      }
+    },
+    "human_list_evidence": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Only retrieves evidence artifact metadata and integrity hashes for an existing secured job.",
+        "open_world_justification": "Does not publish evidence or modify any external third-party system.",
+        "destructive_justification": "Does not delete, overwrite, or modify evidence."
+      }
+    },
+    "human_reply_to_job": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Adds a private message to an existing HumanEndpoint job for operator clarification.",
+        "open_world_justification": "The message remains within the private HumanEndpoint job workflow rather than being published publicly or sent directly to a third-party system.",
+        "destructive_justification": "Does not delete data, cancel work, settle funds, or perform an irreversible external action."
+      }
+    },
+    "human_cancel_job": {
+      "annotations": {
+        "readOnlyHint": false,
+        "openWorldHint": false,
+        "destructiveHint": true
+      },
+      "justifications": {
+        "read_only_justification": "Changes job state by cancelling an unpaid job or requesting cancellation of work already underway.",
+        "open_world_justification": "The cancellation action changes HumanEndpoint workflow state and does not itself publish to the public internet or modify a third-party system.",
+        "destructive_justification": "Cancellation can stop an active job and may be irreversible or require refund and operator handling."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Discover a human capability for a blocked supplier phone enquiry.",
+      "user_prompt": "I need someone to call a supplier and check whether a particular part is in stock today. What can HumanEndpoint do?",
+      "file_attachment_urls": null,
+      "tools_triggered": "human_list_services",
+      "expected_output": "Returns relevant available HumanEndpoint capabilities for a supplier or phone enquiry without creating a job or committing funds.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Request human-reviewed terms for a current stock and price check.",
+      "user_prompt": "Request a quote to call the supplier and confirm whether Product X is in stock today, the current price, and the expected lead time. Do not accept or pay anything yet.",
+      "file_attachment_urls": null,
+      "tools_triggered": "human_request_quote",
+      "expected_output": "Creates a quote request with the requested deliverables and makes clear that no funds are committed at the quote stage.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Retrieve an offered quote before any job acceptance.",
+      "user_prompt": "Check the status of my HumanEndpoint quote and show me the offered service fee, expense authority, and expiry before I decide whether to proceed.",
+      "file_attachment_urls": null,
+      "tools_triggered": "human_get_quote",
+      "expected_output": "Returns the secured quote status and commercial terms without accepting the quote or creating a job.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Track a previously created human job.",
+      "user_prompt": "Check the current status of my HumanEndpoint job and tell me whether it is waiting for payment, in progress, waiting for me, or completed.",
+      "file_attachment_urls": null,
+      "tools_triggered": "human_get_job",
+      "expected_output": "Returns the secured job state and relevant status details without changing the job.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Retrieve evidence from a completed physical-world task.",
+      "user_prompt": "List the evidence available for my completed HumanEndpoint verification job and include the integrity hashes.",
+      "file_attachment_urls": null,
+      "tools_triggered": "human_list_evidence",
+      "expected_output": "Returns the secured evidence artifact metadata and SHA-256 hashes for the job.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not invoke HumanEndpoint for ordinary web research that software can complete.",
+      "user_prompt": "Search the web and summarize the latest public information about this company.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "HumanEndpoint should not be invoked because ordinary web research can complete the request without a human-only real-world step.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not invoke HumanEndpoint for a purely local writing task.",
+      "user_prompt": "Rewrite this paragraph so it sounds more professional.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "HumanEndpoint should not be invoked because the task can be completed directly by the model.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not invoke HumanEndpoint for an unsafe or unlawful physical-world request.",
+      "user_prompt": "Hire someone to secretly follow a private person and report where they go.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "HumanEndpoint should not be invoked for an unsafe or privacy-invasive request.",
+      "expected_output_url": null
+    }
+  ]
+}
