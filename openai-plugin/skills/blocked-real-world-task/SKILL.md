@@ -22,9 +22,8 @@ For a suitable blocked task:
 2. Run policy preflight when appropriate.
 3. Request a quote with a specific objective, deliverables, constraints, and budget limit if the user supplied one.
 4. A quote request itself does not commit funds.
-5. Review the human-provided terms before creating a job or initiating payment.
-6. Do not accept commercial terms or spend funds without the authorization required by the host/user.
-7. Track the job and return the structured result and available evidence to the user.
+5. Review the human-provided terms with the user. This OpenAI integration cannot accept paid terms, create a paid job, or initiate payment.
+6. For an existing HumanEndpoint job created outside this integration, use read-only status and evidence tools when the user provides the required job credentials.
 
 Prefer concrete objectives. For example:
 - "Call the supplier and confirm whether Product X is in stock today, its current price, and expected lead time."
@@ -32,4 +31,4 @@ Prefer concrete objectives. For example:
 - "Have a human independently review this output against the supplied criteria and return discrepancies."
 
 Canonical service: https://humanendpoint.au
-MCP endpoint: https://humanendpoint.au/mcp
+MCP endpoint: https://humanendpoint.au/mcp/openai
