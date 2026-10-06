@@ -4,7 +4,7 @@
   "app_info": {
     "display_name": "HumanEndpoint",
     "subtitle": "Human help for blocked tasks",
-    "description": "HumanEndpoint helps users and AI agents finish lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions. Quote requests are free; commercial terms are reviewed before a job is accepted and paid.",
+    "description": "HumanEndpoint helps users and AI agents request human-reviewed terms for lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions.",
     "category": "BUSINESS"
   },
   "tools": {
@@ -56,18 +56,6 @@
         "destructive_justification": "Does not delete, overwrite, cancel, spend funds, or perform irreversible actions."
       }
     },
-    "human_create_job": {
-      "annotations": {
-        "readOnlyHint": false,
-        "openWorldHint": true,
-        "destructiveHint": false
-      },
-      "justifications": {
-        "read_only_justification": "Accepts an offered quote and creates a HumanEndpoint job, changing private workflow state.",
-        "open_world_justification": "Creating a job starts a workflow that may lead to human execution in the real world, so the tool can cause effects beyond HumanEndpoint's private internal state.",
-        "destructive_justification": "Creates the job but does not itself settle payment or perform the external human task."
-      }
-    },
     "human_get_job": {
       "annotations": {
         "readOnlyHint": true,
@@ -80,18 +68,6 @@
         "destructive_justification": "Does not delete, overwrite, cancel, or perform irreversible actions."
       }
     },
-    "human_list_expenses": {
-      "annotations": {
-        "readOnlyHint": true,
-        "openWorldHint": false,
-        "destructiveHint": false
-      },
-      "justifications": {
-        "read_only_justification": "Only retrieves pass-through expense requests and their status for an existing secured job.",
-        "open_world_justification": "Does not modify public internet state or any third-party system.",
-        "destructive_justification": "Does not approve, pay, cancel, or otherwise change an expense request."
-      }
-    },
     "human_list_evidence": {
       "annotations": {
         "readOnlyHint": true,
@@ -102,30 +78,6 @@
         "read_only_justification": "Only retrieves evidence artifact metadata and integrity hashes for an existing secured job.",
         "open_world_justification": "Does not publish evidence or modify any external third-party system.",
         "destructive_justification": "Does not delete, overwrite, or modify evidence."
-      }
-    },
-    "human_reply_to_job": {
-      "annotations": {
-        "readOnlyHint": false,
-        "openWorldHint": true,
-        "destructiveHint": false
-      },
-      "justifications": {
-        "read_only_justification": "Adds a private message to an existing HumanEndpoint job for operator clarification.",
-        "open_world_justification": "The message is sent to a human operator working on the job and can influence real-world execution, so it interacts with an independently controlled external actor.",
-        "destructive_justification": "Does not delete data, cancel work, settle funds, or perform an irreversible external action."
-      }
-    },
-    "human_cancel_job": {
-      "annotations": {
-        "readOnlyHint": false,
-        "openWorldHint": true,
-        "destructiveHint": true
-      },
-      "justifications": {
-        "read_only_justification": "Changes job state by cancelling an unpaid job or requesting cancellation of work already underway.",
-        "open_world_justification": "Cancellation can stop or alter human work already underway in the real world, so it can affect an independently controlled external actor.",
-        "destructive_justification": "Cancellation can stop an active job and may be irreversible or require refund and operator handling."
       }
     }
   },
@@ -155,11 +107,11 @@
       "expected_output_url": null
     },
     {
-      "description": "Track a previously created human job.",
-      "user_prompt": "Check the current status of my HumanEndpoint job and tell me whether it is waiting for payment, in progress, waiting for me, or completed.",
+      "description": "Read the status of an existing HumanEndpoint job created outside this OpenAI integration.",
+      "user_prompt": "Check the current status of my existing HumanEndpoint job and tell me whether it is in progress, waiting for me, or completed.",
       "file_attachment_urls": null,
       "tools_triggered": "human_get_job",
-      "expected_output": "Returns the secured job state and relevant status details without changing the job.",
+      "expected_output": "Returns read-only status and result information for the secured existing job without creating, funding, modifying, or cancelling it.",
       "expected_output_url": null
     },
     {
