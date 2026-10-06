@@ -1,0 +1,49 @@
+{
+  "name": "humanendpoint",
+  "version": "1.0.0",
+  "description": "Human execution for blocked AI-agent tasks that require a phone call, physical-world verification, bounded manual research, or independent human judgement.",
+  "author": {
+    "name": "HumanEndpoint",
+    "url": "https://humanendpoint.au"
+  },
+  "homepage": "https://humanendpoint.au",
+  "repository": "https://github.com/greatn8/humanendpoint-examples",
+  "license": "MIT",
+  "keywords": [
+    "human-in-the-loop",
+    "human-execution",
+    "ai-agents",
+    "blocked-tasks",
+    "phone-enquiry",
+    "supplier-enquiry",
+    "stock-check",
+    "availability",
+    "physical-verification",
+    "real-world-action",
+    "human-qa",
+    "mcp",
+    "x402"
+  ],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "HumanEndpoint",
+    "shortDescription": "Human execution for blocked AI tasks",
+    "longDescription": "HumanEndpoint helps AI agents finish lawful tasks that software alone cannot complete. Request a human-reviewed quote for business or supplier phone enquiries, stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions. No payment is required to request a quote; the agent reviews the terms before accepting and paying.",
+    "developerName": "HumanEndpoint",
+    "category": "Business & Operations",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://humanendpoint.au",
+    "privacyPolicyURL": "https://humanendpoint.au/privacy",
+    "termsOfServiceURL": "https://humanendpoint.au/terms",
+    "defaultPrompt": [
+      "Call this business and find out whether they have this item in stock today.",
+      "Ask this supplier for the current price, availability, and lead time.",
+      "I am blocked by a real-world step that needs a person. Help me get it completed."
+    ],
+    "screenshots": []
+  }
+}
