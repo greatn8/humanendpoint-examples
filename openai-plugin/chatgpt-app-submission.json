@@ -35,12 +35,12 @@
     "human_request_quote": {
       "annotations": {
         "readOnlyHint": false,
-        "openWorldHint": false,
+        "openWorldHint": true,
         "destructiveHint": false
       },
       "justifications": {
         "read_only_justification": "Creates a quote request in HumanEndpoint for human review, although it does not commit funds.",
-        "open_world_justification": "Creates private HumanEndpoint workflow state and does not publish to the public internet or modify a third-party system.",
+        "open_world_justification": "Submitting a quote request sends the task into a workflow reviewed by a human operator, so it interacts with an independently controlled external actor even though it does not commit funds or start execution.",
         "destructive_justification": "A quote request does not spend funds, delete data, or irreversibly commit the user to work."
       }
     },
