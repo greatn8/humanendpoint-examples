@@ -28,8 +28,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "HumanEndpoint",
-    "shortDescription": "Human execution for blocked AI tasks",
-    "longDescription": "HumanEndpoint helps AI agents finish lawful tasks that software alone cannot complete. Request a human-reviewed quote for business or supplier phone enquiries, stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions. No payment is required to request a quote; the agent reviews the terms before accepting and paying.",
+    "shortDescription": "Human help for blocked tasks",
+    "longDescription": "HumanEndpoint helps AI agents finish lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions.",
     "developerName": "HumanEndpoint",
     "category": "Business & Operations",
     "capabilities": [
@@ -44,6 +44,9 @@
       "Ask this supplier for the current price, availability, and lead time.",
       "I am blocked by a real-world step that needs a person. Help me get it completed."
     ],
-    "screenshots": []
+    "screenshots": [],
+    "supportURL": "https://humanendpoint.au/contact",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }
