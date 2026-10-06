@@ -21,8 +21,7 @@
     "physical-verification",
     "real-world-action",
     "human-qa",
-    "mcp",
-    "x402"
+    "mcp"
   ],
   "mcpServers": "./.mcp.json",
   "skills": "./skills/",
@@ -40,9 +39,9 @@
     "privacyPolicyURL": "https://humanendpoint.au/privacy",
     "termsOfServiceURL": "https://humanendpoint.au/terms",
     "defaultPrompt": [
-      "Call this business and find out whether they have this item in stock today.",
+      "Find out whether this business has this item in stock today.",
       "Ask this supplier for the current price, availability, and lead time.",
-      "I am blocked by a real-world step that needs a person. Help me get it completed."
+      "I am blocked by a real-world step that needs a person. Help me request human-reviewed terms."
     ],
     "screenshots": [],
     "supportURL": "https://humanendpoint.au/contact",
