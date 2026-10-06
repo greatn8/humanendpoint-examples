@@ -2,7 +2,7 @@
   "mcpServers": {
     "humanendpoint": {
       "type": "streamable-http",
-      "url": "https://humanendpoint.au/mcp"
+      "url": "https://humanendpoint.au/mcp/openai"
     }
   }
 }
