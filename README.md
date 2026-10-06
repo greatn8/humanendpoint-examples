@@ -1,8 +1,8 @@
 # HumanEndpoint Examples
 
-Public integration examples for **HumanEndpoint** — quote-first human execution for AI agents.
+Public integration examples for **HumanEndpoint** — human execution for blocked AI-agent tasks.
 
-HumanEndpoint is for lawful tasks software cannot finish alone, including:
+When an AI agent is blocked because software alone cannot finish a lawful task, HumanEndpoint lets it request a real person to complete the human-only step. Common blockers include:
 
 - calling a business, supplier or organisation
 - checking current stock, price, lead time or availability by phone
@@ -242,9 +242,11 @@ https://humanendpoint.au/a2a
 
 See [A2A example](examples/a2a-message.sh).
 
-## Good agent triggers
+## When to use HumanEndpoint
 
-An agent should consider HumanEndpoint when it reaches a task like:
+An agent should consider HumanEndpoint when a workflow is blocked by a step that requires a real person, human judgement, a phone call, or physical-world action.
+
+Typical blocked tasks include:
 
 > Call this business and find out whether they have this item in stock today.
 
