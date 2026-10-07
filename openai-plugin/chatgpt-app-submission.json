@@ -4,7 +4,7 @@
   "app_info": {
     "display_name": "HumanEndpoint",
     "subtitle": "Human help for blocked tasks",
-    "description": "HumanEndpoint helps users and AI agents request human-reviewed terms for lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions.",
+    "description": "HumanEndpoint helps users and AI agents request human review for lawful tasks that software alone cannot complete, including business and supplier phone enquiries, current stock and availability checks, physical-world verification, bounded manual research, independent human QA, and other well-scoped real-world actions.",
     "category": "BUSINESS"
   },
   "tools": {
@@ -91,19 +91,19 @@
       "expected_output_url": null
     },
     {
-      "description": "Request human-reviewed terms for a current stock and price check.",
-      "user_prompt": "Request a quote to call the supplier and confirm whether Product X is in stock today, the current price, and the expected lead time. Do not accept or pay anything yet.",
+      "description": "Request human review for a current stock check.",
+      "user_prompt": "Request human review to call the supplier and confirm whether Product X is in stock today. Do not accept anything or initiate payment.",
       "file_attachment_urls": null,
       "tools_triggered": "human_request_quote",
-      "expected_output": "Creates a quote request with the requested deliverables and makes clear that no funds are committed at the quote stage.",
+      "expected_output": "Creates a human-review request for the requested stock check and makes clear that no paid job or transaction has been initiated.",
       "expected_output_url": null
     },
     {
-      "description": "Retrieve an offered quote before any job acceptance.",
-      "user_prompt": "Check the status of my HumanEndpoint quote and show me the offered service fee, expense authority, and expiry before I decide whether to proceed.",
+      "description": "Retrieve the status of a human-reviewed request.",
+      "user_prompt": "Check the status of my HumanEndpoint quote and tell me whether it is still pending review, offered, declined, or expired. Do not accept anything or initiate payment.",
       "file_attachment_urls": null,
       "tools_triggered": "human_get_quote",
-      "expected_output": "Returns the secured quote status and commercial terms without accepting the quote or creating a job.",
+      "expected_output": "Returns the secured review status and any non-transactional status details without accepting terms, creating a paid job, or initiating payment.",
       "expected_output_url": null
     },
     {
